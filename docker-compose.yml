@@ -3,4 +3,4 @@
     image: lymarket
     build:
       context: .
-      dockerfile: LyMarket/Dockerfile
+      dockerfile: Dockerfile
