@@ -7,13 +7,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.ListenAnyIP(443, listenOptions =>
-    {
-        listenOptions.UseHttps(); // Assuming you have a valid certificate
-    });
-});
 
 var app = builder.Build();
 
