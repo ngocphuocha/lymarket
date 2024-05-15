@@ -19,6 +19,8 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "Hello from your API on Render!");
 
+app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
 app.MapControllers();
