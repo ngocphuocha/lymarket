@@ -10,7 +10,7 @@ namespace LyMarket.Controllers
         [HttpGet]
         public IActionResult GetProducts()
         {
-            return Ok("Hello Wo\rld");
+            return Ok("Hello World");
         }
     }
 }
