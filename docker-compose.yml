@@ -1,0 +1,6 @@
+﻿services:
+  lymarket:
+    image: lymarket
+    build:
+      context: .
+      dockerfile: LyMarket/Dockerfile

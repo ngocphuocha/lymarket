@@ -1,0 +1,6 @@
+@LyMarket_HostAddress = http://localhost:5200
+
+GET {{LyMarket_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
