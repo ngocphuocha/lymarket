@@ -1,6 +1,13 @@
-﻿services:
-  lymarket:
-    image: lymarket
-    build:
-      context: .
-      dockerfile: Dockerfile
+﻿  version: '3.8'
+
+  services:
+    lymarket:
+      image: lymarket
+      build:
+        context: .
+        dockerfile: Dockerfile
+      # environment:
+      #   - ASPNETCORE_ENVIRONMENT=Production 
+        # - ASPNETCORE_URLS=http://+:80
+      ports: 
+        - 80:80

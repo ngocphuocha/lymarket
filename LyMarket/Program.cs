@@ -11,18 +11,15 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapGet("/", () => "Hello from your API on Render!");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.Urls.Add("http://0.0.0.0:80"); 
 app.MapControllers();
 
 app.Run();
