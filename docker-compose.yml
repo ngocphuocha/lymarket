@@ -2,6 +2,7 @@
 
 services:
   app:
+    image: app
     build: .
     networks:
       - internal_network
@@ -25,6 +26,7 @@ services:
       - internal_network
 
   nginx:
+    image: nginx
     build:
       context: ./nginx
       dockerfile: Dockerfile

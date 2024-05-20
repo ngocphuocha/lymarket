@@ -6,3 +6,5 @@
 /projectSettingsUpdater.xml
 /contentModel.xml
 /.idea.LyMarket.iml
+# GitHub Copilot persisted chat sessions
+/copilot/chatSessions

@@ -1,5 +1,7 @@
 using LyMarket.Data;
+using LyMarket.Mapper;
 using LyMarket.Models;
+using LyMarket.Services.TodoServices.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace LyMarket.Repositories;
@@ -7,6 +9,23 @@ namespace LyMarket.Repositories;
 public class TodoListRepository(LyMarketDbContext context, ILogger logger) : GenericRepository<TodoList>(context, logger), ITodoRepository
 {
     private readonly LyMarketDbContext _context = context;
+
+    public async Task<TodoResponse> CreateTodoList(CreateTodoRequest request)
+    {
+        try
+        {
+            var todo = request.MapCreateTodoRequestToEntity();
+            var newTodo = await _context.TodoLists.AddAsync(todo);
+            await _context.SaveChangesAsync();
+            var result = newTodo.Entity.ToTodoResponse();
+            return result;
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "{Repo} All method error", typeof(TodoListRepository));
+            throw;
+        }
+    }
 
     public async Task<IEnumerable<TodoList>> GetAllTodoList()
     {

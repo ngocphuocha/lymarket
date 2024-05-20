@@ -34,4 +34,28 @@ public class TodosController : ControllerBase
             });
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateTodo(CreateTodoRequest request)
+    {
+        try
+        {
+            var todo = await _todoServices.CreateTodo(request);
+            return Ok(new ResponseItem<TodoResponse>
+            {
+                Data = todo,
+                Message = "Successfully",
+                Status = RequestStatus.Success
+            });
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new ResponseError
+            {
+                Message = "Failed to create new todo",
+                Status = RequestStatus.Fail,
+                Detail = e.Message
+            });
+        }
+    }
 }
