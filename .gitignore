@@ -1,0 +1,22 @@
+mkbin
+obj
+.env
+
+
+
+# IDE
+.vscode
+.idea
+.vs
+SI-BE.sln.DotSettings.user
+
+# Local config ignore
+docker-compose.override.yaml
+appsettings.json
+appsettings.Development.json
+
+
+
+
+#macos
+.DS_Store

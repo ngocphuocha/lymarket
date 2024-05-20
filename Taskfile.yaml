@@ -1,0 +1,32 @@
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - docker compose up -d --build
+
+  restart_app:
+    cmds:
+      - docker compose restart app-1
+
+  clean_db:
+    cmds:
+      - docker compose down -v
+      - docker compose up db -d
+      - task: watch
+  
+  create-migration: 
+    cmds:
+      - dotnet ef migrations add "init" --context VsbgDbContext --project ./Vsbg.Infrastructure --startup-project ./Vsbg.WebApi
+  update-migration: 
+      - dotnet ef database update --context VsbgDbContext --verbose --project ./Vsbg.Infrastructure --startup-project ./Vsbg.WebApi
+  # Local Enviroment
+  reset-migrations-local:
+    cmds:
+      - rm -rf ./Vsbg.Infrastructure/Migrations
+      - task: create-migration
+      - docker compose down -v
+      - docker compose up db -d
+      - task: update-migration
+  watch:
+    cmd: export DOTNET_WATCH_RESTART_ON_RUDE_EDIT=1 && dotnet watch --project SI-BE

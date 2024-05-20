@@ -1,25 +1,37 @@
+using LyMarket.Data;
+using LyMarket.Extensions;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<LyMarketDbContext>();
+builder.Services.AddAppService();
 
 var app = builder.Build();
-builder.WebHost.UseUrls("http://0.0.0.0:80"); // Listen on all interfaces, port 80
-// Configure the HTTP request pipeline.
-app.UseSwagger();
-app.UseSwaggerUI();
 
-app.MapGet("/", () => "Hello from your API on Render!");
+
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<LyMarketDbContext>();
+
+    if (context.Database.GetPendingMigrations().Any())
+    {
+        await context.Database.MigrateAsync();
+    }
+
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.MapGet("/", () => "Hello from your API on AWS EC2!");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.Urls.Add("http://0.0.0.0:80");
 app.MapControllers();
 
 app.Run();

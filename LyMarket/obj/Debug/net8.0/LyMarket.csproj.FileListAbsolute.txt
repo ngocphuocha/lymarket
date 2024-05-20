@@ -224,3 +224,16 @@
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/obj/Debug/net8.0/LyMarket.pdb
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/obj/Debug/net8.0/LyMarket.genruntimeconfig.cache
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/obj/Debug/net8.0/ref/LyMarket.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Npgsql.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Riok.Mapperly.Abstractions.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll
