@@ -15,8 +15,12 @@ public class UnitOfWork : IUnitOfWork
         var logger = loggerFactory.CreateLogger("logs");
         _context = context;
         TodoLists = new TodoListRepository(context, logger);
+        Products = new ProductRepository(context, logger);
     }
     public ITodoRepository TodoLists { get; }
+
+    public IProductRepository Products { get; }
+
     public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
 
     public void Dispose() => _context.Dispose();

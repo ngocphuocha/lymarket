@@ -5,25 +5,15 @@ using LyMarket.Services.TodoServices.DTO;
 
 namespace LyMarket.Services.TodoServices;
 
-public class TodoServices
+public class TodoServices(IUnitOfWork unitOfWork)
 {
-    private readonly LyMarketDbContext _context;
-    private readonly IUnitOfWork _unitOfWork;
-
-    public TodoServices(IUnitOfWork unitOfWork, LyMarketDbContext context)
-    {
-        _unitOfWork = unitOfWork;
-        _context = context;
-    }
-
-
     public async Task<PaginatedList<TodoResponse>> GetTodos(RequestParameters request)
     {
-        var query = _unitOfWork.TodoLists.GetQueryAble().OrderBy(todo => todo.CreatedAt);
+        var query = unitOfWork.TodoLists.GetQueryAble().OrderBy(todo => todo.CreatedAt);
 
         var result = await query.ToPaginatedList<TodoResponse>(request.PageNumber, request.PageSize);
         return result;
     }
 
-    public async Task<TodoResponse> CreateTodo(CreateTodoRequest request) => await _unitOfWork.TodoLists.CreateTodoList(request);
+    public async Task<TodoResponse> CreateTodo(CreateTodoRequest request) => await unitOfWork.TodoLists.CreateTodoList(request);
 }

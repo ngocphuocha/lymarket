@@ -27,7 +27,6 @@ public class TodosController : ControllerBase
         {
             return BadRequest(new ResponseError
             {
-                ErrorCode = 1000,
                 Message = "Failed to get stores",
                 Status = RequestStatus.Fail,
                 Detail = e.Message

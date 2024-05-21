@@ -6,5 +6,7 @@ public interface IUnitOfWork
 {
     ITodoRepository TodoLists { get; }
 
+    IProductRepository Products { get; }
+
     Task<int> CompleteAsync();
 }
