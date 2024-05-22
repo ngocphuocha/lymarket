@@ -1,4 +1,4 @@
-namespace Vsbg.Core.Constants;
+namespace LyMarket.Constants;
 
 public abstract class Policies
 {

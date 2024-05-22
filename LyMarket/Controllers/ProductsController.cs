@@ -1,5 +1,6 @@
 using LyMarket.Helpers.Pagination;
-using LyMarket.Services.ProductServices;
+using LyMarket.Services.Internals.ProductServices;
+using LyMarket.Services.Internals.ProductServices.Dto;
 using LyMarket.Services.ProductServices.Dto;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +10,13 @@ namespace LyMarket.Controllers;
 [ApiController]
 public class ProductsController(ProductServices productServices) : ControllerBase
 {
-    private readonly ProductServices _productServices = productServices;
 
     [HttpGet]
     public async Task<IActionResult> GetProducts([FromQuery] RequestParameters request)
     {
         try
         {
-            var products = await _productServices.GetProducts(request);
+            var products = await productServices.GetProducts(request);
             return Ok(new ResponsePaginate<ProductResponse>(products, products.MetaData, "Get products successfully"));
         }
         catch (Exception e)
@@ -31,7 +31,7 @@ public class ProductsController(ProductServices productServices) : ControllerBas
     {
         try
         {
-            var result = await _productServices.CreateProduct(request);
+            var result = await productServices.CreateProduct(request);
             return Ok(new ResponseItem<ProductResponse>
             {
                 Status = RequestStatus.Success,

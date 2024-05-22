@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "B/xTuMvyc+sVSchjAaPZ9X7T0q05vm/yw3VmKp0sikHDkMN7HQClMp+gm+atsGRzdW5ghywSXLRWPD2pq0VwqA==",
+  "dgSpecHash": "UNr/1RWtJgZd0VK26mB87JBLY3R0AJb9hMOl4a2q2g1at2I8xy5xBscf3ph5paKmFeoiEWPQY+hb4HGwgBFXkA==",
   "success": true,
   "projectFilePath": "/Users/phuoctn/RiderProjects/LyMarket/LyMarket/LyMarket.csproj",
   "expectedPackageFiles": [
+    "/Users/phuoctn/.nuget/packages/awssdk.core/3.7.304.3/awssdk.core.3.7.304.3.nupkg.sha512",
+    "/Users/phuoctn/.nuget/packages/awssdk.extensions.netcore.setup/3.7.300/awssdk.extensions.netcore.setup.3.7.300.nupkg.sha512",
+    "/Users/phuoctn/.nuget/packages/awssdk.s3/3.7.308.2/awssdk.s3.3.7.308.2.nupkg.sha512",
     "/Users/phuoctn/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
     "/Users/phuoctn/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/phuoctn/.nuget/packages/humanizer.core.af/2.14.1/humanizer.core.af.2.14.1.nupkg.sha512",

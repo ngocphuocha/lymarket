@@ -3,15 +3,13 @@ using LyMarket.Extensions;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<LyMarketDbContext>();
-builder.Services.AddAppService();
+builder.Services.AddAppService(); // Internal services like repository, unit of work, ....
+builder.Services.AddExternalService(); // External service like database, aws, azure, cloud, infrastructure
 
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -27,9 +25,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "Hello from your API on AWS EC2!");
+app.MapGet("/", () => "Hello from Ly Market API!");
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.MapControllers();
