@@ -2,7 +2,7 @@ using LyMarket.Contracts;
 
 namespace LyMarket.Services.External;
 
-public class BlobService: IStorageService
+public class AzureBlobService: IStorageService
 {
 
     public Task<string> UploadFileAsync(IFormFile file) => throw new NotImplementedException();

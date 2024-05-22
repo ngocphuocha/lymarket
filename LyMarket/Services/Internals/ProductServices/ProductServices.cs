@@ -1,4 +1,6 @@
+using LyMarket.Constants;
 using LyMarket.Data;
+using LyMarket.Enums;
 using LyMarket.Extensions;
 using LyMarket.Helpers.Pagination;
 using LyMarket.Services.External;
@@ -7,7 +9,7 @@ using LyMarket.Services.ProductServices.Dto;
 
 namespace LyMarket.Services.Internals.ProductServices;
 
-public class ProductServices(IUnitOfWork unitOfWork, AwsS3Service awsS3Service)
+public class ProductServices(IUnitOfWork unitOfWork, [FromKeyedServices(nameof(StorageServiceName.AwsS3))] AwsS3Service awsS3Service, [FromKeyedServices(nameof(StorageServiceName.AzureBlob))] AzureBlobService azureBlobService)
 {
     public async Task<PaginatedList<ProductResponse>> GetProducts(RequestParameters request)
     {
@@ -20,7 +22,12 @@ public class ProductServices(IUnitOfWork unitOfWork, AwsS3Service awsS3Service)
 
         if (request.FileUpload is not null)
         {
-            imageUrl = await awsS3Service.UploadFileAsync(request.FileUpload);
+            imageUrl = request.StorageProvider switch
+            {
+                StogrageProvider.AwsS3 => await awsS3Service.UploadFileAsync(request.FileUpload),
+                StogrageProvider.AzureBlob => await azureBlobService.UploadFileAsync(request.FileUpload),
+                _ => imageUrl
+            };
         }
         var product = await unitOfWork.Products.CreateProduct(request, imageUrl);
         return product;

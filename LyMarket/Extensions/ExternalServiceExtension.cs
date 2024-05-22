@@ -22,6 +22,6 @@ public static class ExternalServiceExtension
         });
 
         services.AddKeyedSingleton<IStorageService, AwsS3Service>(StorageServiceName.AwsS3);
-        services.AddKeyedSingleton<IStorageService, BlobService>(StorageServiceName.AzureBlob);
+        services.AddKeyedSingleton<IStorageService, AzureBlobService>(StorageServiceName.AzureBlob);
     }
 }
