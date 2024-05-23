@@ -11,11 +11,11 @@ namespace LyMarket.Services.External;
 
 public class AwsS3Service : IStorageService
 {
-    private readonly ILogger _logger;
+    private readonly ILogger<AwsS3Service> _logger;
     private readonly AwsS3Options _options;
     private readonly IAmazonS3 _s3Client;
 
-    public AwsS3Service(IOptions<AwsS3Options> options, ILogger logger)
+    public AwsS3Service(IOptions<AwsS3Options> options, ILogger<AwsS3Service> logger)
     {
         _logger = logger;
         _options = options.Value;

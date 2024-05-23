@@ -1,4 +1,5 @@
 using LyMarket.Constants;
+using LyMarket.Contracts;
 using LyMarket.Data;
 using LyMarket.Enums;
 using LyMarket.Extensions;
@@ -9,7 +10,7 @@ using LyMarket.Services.ProductServices.Dto;
 
 namespace LyMarket.Services.Internals.ProductServices;
 
-public class ProductServices(IUnitOfWork unitOfWork, [FromKeyedServices(nameof(StorageServiceName.AwsS3))] AwsS3Service awsS3Service, [FromKeyedServices(nameof(StorageServiceName.AzureBlob))] AzureBlobService azureBlobService)
+public class ProductServices(IUnitOfWork unitOfWork, [FromKeyedServices(nameof(StorageServiceName.AwsS3))] IStorageService awsS3Service, [FromKeyedServices(nameof(StorageServiceName.AzureBlob))] IStorageService azureBlobService)
 {
     public async Task<PaginatedList<ProductResponse>> GetProducts(RequestParameters request)
     {
