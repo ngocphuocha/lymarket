@@ -237,3 +237,6 @@
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Riok.Mapperly.Abstractions.dll
 /Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/AWSSDK.Core.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/AWSSDK.Extensions.NETCore.Setup.dll
+/Users/phuoctn/RiderProjects/LyMarket/LyMarket/bin/Debug/net8.0/AWSSDK.S3.dll
