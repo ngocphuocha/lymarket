@@ -3,7 +3,7 @@ using LyMarket.Extensions;
 using LyMarket.Helpers.Pagination;
 using LyMarket.Services.TodoServices.DTO;
 
-namespace LyMarket.Services.TodoServices;
+namespace LyMarket.Services.Internals.TodoServices;
 
 public class TodoServices(IUnitOfWork unitOfWork)
 {

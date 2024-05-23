@@ -1,17 +1,6 @@
 ﻿version: "3.8"
 
 services:
-  app:
-    image: app
-    build: .
-    networks:
-      - internal_network
-    environment:
-      ConnectionStrings__LyMarketDatabase: "Host=database;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
-      ASPNETCORE_URLS: http://*:8080
-      ASPNETCORE_HTTPS_PORT: https://*:8081
-      ASPNETCORE_ENVIRONMENT: Development
-
   database:
     image: postgres:14.4-alpine
     environment:
@@ -24,7 +13,18 @@ services:
       - database:/var/lib/postgresql/data
     networks:
       - internal_network
-
+  app:
+    image: app
+    build: .
+    networks:
+      - internal_network
+    environment:
+      ConnectionStrings__LyMarketDatabase: "Host=database;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+      ASPNETCORE_URLS: http://*:8080
+      ASPNETCORE_HTTPS_PORT: https://*:8081
+      ASPNETCORE_ENVIRONMENT: Development
+    depends_on:
+      - database
   nginx:
     image: nginx
     build:
@@ -36,9 +36,7 @@ services:
       - app
     networks:
       - internal_network
-
 volumes:
   database:
-
 networks:
   internal_network:
