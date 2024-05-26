@@ -1,0 +1,1 @@
+sudo certbot certonly --webroot -w /var/www/html -d lytaphoa.store -d www.lytaphoa.store

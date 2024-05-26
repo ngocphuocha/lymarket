@@ -31,7 +31,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "Hello from Ly Market API!");
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.MapControllers();
