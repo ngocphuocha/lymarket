@@ -9,10 +9,10 @@ tasks:
       - docker compose --env-file .env.prod build
   up_dev:
     cmds:
-      - docker compose --env-file .env.dev up --build
+      - docker compose --env-file .env.dev up --build -d
   up_prod:
     cmds:
-      - docker compose --env-file .env.prod up --build
+      - docker compose --env-file .env.prod up --build -d
 
   restart_app:
     cmds:
