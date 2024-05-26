@@ -3,7 +3,7 @@ Chạy Docker Compose với biến môi trường tương ứng
 
 Create ENV file from .env.example
 ```
-cp .env.example .env.development && cp .env.example .env.production
+cp .env.example .env.dev && cp .env.example .env.prod
 ```
 
 For development
