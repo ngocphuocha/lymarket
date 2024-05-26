@@ -1,9 +1,18 @@
 version: "3"
 
 tasks:
-  build:
+  build_dev:
     cmds:
-      - docker compose up -d --build
+      - docker compose --env-file .env.dev build
+  build_prod:
+    cmds:
+      - docker compose --env-file .env.prod build
+  up_dev:
+    cmds:
+      - docker compose --env-file .env.dev up --build
+  up_prod:
+    cmds:
+      - docker compose --env-file .env.prod up --build
 
   restart_app:
     cmds:
@@ -14,11 +23,11 @@ tasks:
       - docker compose down -v
       - docker compose up db -d
       - task: watch
-  
-  create-migration: 
+
+  create-migration:
     cmds:
       - dotnet ef migrations add "init" --context VsbgDbContext --project ./Vsbg.Infrastructure --startup-project ./Vsbg.WebApi
-  update-migration: 
+  update-migration:
       - dotnet ef database update --context VsbgDbContext --verbose --project ./Vsbg.Infrastructure --startup-project ./Vsbg.WebApi
   # Local Enviroment
   reset-migrations-local:

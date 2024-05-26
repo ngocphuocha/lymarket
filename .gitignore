@@ -1,7 +1,8 @@
 mkbin
 obj
 .env
-
+.env.development
+.env.production
 
 
 # IDE
