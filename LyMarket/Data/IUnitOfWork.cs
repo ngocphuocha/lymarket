@@ -8,5 +8,5 @@ public interface IUnitOfWork
 
     IProductRepository Products { get; }
 
-    Task<int> CompleteAsync();
+    Task<int> CompleteAsync(CancellationToken cancellationToken = default);
 }

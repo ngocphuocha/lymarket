@@ -4,13 +4,15 @@ using LyMarket.Data;
 using LyMarket.Enums;
 using LyMarket.Extensions;
 using LyMarket.Helpers.Pagination;
-using LyMarket.Services.External;
 using LyMarket.Services.Internals.ProductServices.Dto;
 using LyMarket.Services.ProductServices.Dto;
 
 namespace LyMarket.Services.Internals.ProductServices;
 
-public class ProductServices(IUnitOfWork unitOfWork, [FromKeyedServices(nameof(StorageServiceName.AwsS3))] IStorageService awsS3Service, [FromKeyedServices(nameof(StorageServiceName.AzureBlob))] IStorageService azureBlobService)
+public class ProductServices(
+    IUnitOfWork unitOfWork,
+    [FromKeyedServices(nameof(StorageServiceName.AwsS3))] IStorageService awsS3Service,
+    [FromKeyedServices(nameof(StorageServiceName.AzureBlob))] IStorageService azureBlobService)
 {
     public async Task<PaginatedList<ProductResponse>> GetProducts(RequestParameters request)
     {
