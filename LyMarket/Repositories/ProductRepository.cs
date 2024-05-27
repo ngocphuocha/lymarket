@@ -3,6 +3,7 @@ using LyMarket.Mapper;
 using LyMarket.Models;
 using LyMarket.Services.Internals.ProductServices.Dto;
 using LyMarket.Services.ProductServices.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace LyMarket.Repositories;
 
@@ -15,14 +16,18 @@ public class ProductRepository(LyMarketDbContext context, ILogger logger) : Gene
         try
         {
             var newProduct = request.MapCreateProductRequestToEntity();
+            var exitedProduct = await context.Products.FirstAsync(p => p.Name == newProduct.Name);
+
+            if(exitedProduct is not null)
+            {
+                throw new Exception("Product already existed");
+            }
 
             if (imageUrl is not null)
             {
                 newProduct.ImageUrl = imageUrl;
             }
             await _context.Products.AddAsync(newProduct);
-            await _context.SaveChangesAsync();
-
             return newProduct.ToProductResponse();
         }
         catch (Exception e)

@@ -1,8 +1,6 @@
 using LyMarket.Data;
 using LyMarket.Services.Internals.ProductServices;
 using LyMarket.Services.Internals.TodoServices;
-using LyMarket.Services.ProductServices;
-using LyMarket.Services.TodoServices;
 
 namespace LyMarket.Extensions;
 

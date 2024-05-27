@@ -16,7 +16,6 @@ public class TodoListRepository(LyMarketDbContext context, ILogger logger) : Gen
         {
             var todo = request.MapCreateTodoRequestToEntity();
             var newTodo = await _context.TodoLists.AddAsync(todo);
-            await _context.SaveChangesAsync();
             var result = newTodo.Entity.ToTodoResponse();
             return result;
         }

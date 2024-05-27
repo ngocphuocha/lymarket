@@ -43,7 +43,7 @@ public class ProductsController(ProductServices productServices) : ControllerBas
         {
             return BadRequest(new ResponseError
             {
-                Status = RequestStatus.Success,
+                Status = RequestStatus.Fail,
                 Message = "Failed to create new product",
                 Detail = e.Message
             });

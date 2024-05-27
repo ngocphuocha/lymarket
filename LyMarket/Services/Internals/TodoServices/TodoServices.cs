@@ -15,5 +15,10 @@ public class TodoServices(IUnitOfWork unitOfWork)
         return result;
     }
 
-    public async Task<TodoResponse> CreateTodo(CreateTodoRequest request) => await unitOfWork.TodoLists.CreateTodoList(request);
+    public async Task<TodoResponse> CreateTodo(CreateTodoRequest request)
+    {
+        var result = await unitOfWork.TodoLists.CreateTodoList(request);
+        await unitOfWork.CompleteAsync();
+        return result;
+    }
 }

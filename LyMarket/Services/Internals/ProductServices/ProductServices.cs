@@ -31,6 +31,7 @@ public class ProductServices(IUnitOfWork unitOfWork, [FromKeyedServices(nameof(S
             };
         }
         var product = await unitOfWork.Products.CreateProduct(request, imageUrl);
+        await unitOfWork.CompleteAsync();
         return product;
     }
 }
