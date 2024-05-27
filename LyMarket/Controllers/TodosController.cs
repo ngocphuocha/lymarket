@@ -36,7 +36,7 @@ public class TodosController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateTodo(CreateTodoRequest request)
+    public async Task<IActionResult> CreateTodo([FromBody] CreateTodoRequest request)
     {
         try
         {
