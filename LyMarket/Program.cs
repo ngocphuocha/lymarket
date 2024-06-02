@@ -10,9 +10,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("https://api.lytaphoa.store",
-                    "https://lytaphoa.com",
-                    "https://www.lytaphoa.com")
+            policy.WithOrigins(
+                    "https://lytaphoa.store",
+                    "https://www.lytaphoa.store")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
