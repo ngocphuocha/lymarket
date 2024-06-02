@@ -29,9 +29,6 @@ builder.Services.AddAWSService<IAmazonS3>();
 
 var app = builder.Build();
 
-
-app.UseCors(MyAllowSpecificOrigins);
-
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
@@ -46,11 +43,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "Hello from Ly Market API!");
-
 app.UseHttpsRedirection();
 
+app.UseCors(MyAllowSpecificOrigins);
+
 app.UseAuthorization();
+
 app.MapControllers();
+
+app.MapGet("/", () => "Hello from Ly Market API!");
 
 app.Run();
