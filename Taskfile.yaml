@@ -13,7 +13,9 @@ tasks:
   up_prod:
     cmds:
       - docker compose --env-file .env.prod up --build -d
-
+  down_prod:
+    cmds:
+      - docker compose --env-file .env.prod down
   restart_app:
     cmds:
       - docker compose restart app-1

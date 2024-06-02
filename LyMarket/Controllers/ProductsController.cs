@@ -1,7 +1,6 @@
 using LyMarket.Helpers.Pagination;
 using LyMarket.Services.Internals.ProductServices;
 using LyMarket.Services.Internals.ProductServices.Dto;
-using LyMarket.Services.ProductServices.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LyMarket.Controllers;
@@ -12,7 +11,7 @@ public class ProductsController(ProductServices productServices) : ControllerBas
 {
 
     [HttpGet]
-    public async Task<IActionResult> GetProducts([FromQuery] RequestParameters request)
+    public async Task<IActionResult> GetProducts([FromQuery] GetProductsRequest request)
     {
         try
         {

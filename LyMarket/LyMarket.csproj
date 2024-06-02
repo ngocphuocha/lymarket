@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.300" />
-        <PackageReference Include="AWSSDK.S3" Version="3.7.308.2" />
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.300"/>
+        <PackageReference Include="AWSSDK.S3" Version="3.7.308.2"/>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,7 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Services\Internals\" />
+        <Folder Include="Services\Internals\"/>
     </ItemGroup>
 
 </Project>

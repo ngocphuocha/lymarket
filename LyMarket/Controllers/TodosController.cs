@@ -1,6 +1,5 @@
 using LyMarket.Helpers.Pagination;
 using LyMarket.Services.Internals.TodoServices;
-using LyMarket.Services.TodoServices;
 using LyMarket.Services.TodoServices.DTO;
 using Microsoft.AspNetCore.Mvc;
 

@@ -2,7 +2,21 @@ using Amazon.S3;
 using LyMarket.Data;
 using LyMarket.Extensions;
 using Microsoft.EntityFrameworkCore;
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.WithOrigins("https://api.lytaphoa.store",
+                    "https://lytaphoa.com",
+                    "https://www.lytaphoa.com")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -14,6 +28,9 @@ builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 builder.Services.AddAWSService<IAmazonS3>();
 
 var app = builder.Build();
+
+
+app.UseCors(MyAllowSpecificOrigins);
 
 if (app.Environment.IsDevelopment())
 {

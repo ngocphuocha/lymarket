@@ -7,5 +7,4 @@ public static class FileHelper
         var fileExtension = Path.GetExtension(file.FileName);
         return $"{Guid.NewGuid()}{fileExtension}";
     }
-
 }
