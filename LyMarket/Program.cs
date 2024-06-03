@@ -2,19 +2,39 @@ using Amazon.S3;
 using LyMarket.Data;
 using LyMarket.Extensions;
 using Microsoft.EntityFrameworkCore;
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+const string myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
+var environment = builder.Environment;
+
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(MyAllowSpecificOrigins,
+    options.AddPolicy(myAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins(
-                    "https://lytaphoa.store",
-                    "https://www.lytaphoa.store")
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+            if (environment.IsDevelopment())
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            }
+            else
+            {
+                // Get origins from environment variable
+                var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',');
+
+                if (allowedOrigins is null  || allowedOrigins.Length is 0)
+                {
+                    // Handle missing or empty environment variable
+                    // You might log a warning, throw an exception, or provide a default value
+                    throw new Exception("ALLOWED_ORIGINS environment variable is not set or empty.");
+                }
+
+                policy.WithOrigins(allowedOrigins)
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            }
         });
 });
 
@@ -45,7 +65,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors(myAllowSpecificOrigins);
 
 app.UseAuthorization();
 
