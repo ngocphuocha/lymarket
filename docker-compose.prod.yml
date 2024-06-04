@@ -1,4 +1,4 @@
-﻿services:
+services:
   db:
     image: postgres:14.4-alpine
     environment:
@@ -30,9 +30,19 @@
       AWS_BASE_URL_OBJECT: ${AWS_BASE_URL_OBJECT}
     depends_on:
       - db
-    ports:
-      - "80:8080"
 
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/ssl
+    depends_on:
+      - app
+    networks:
+      - internal_network
 
 volumes:
   db-data:

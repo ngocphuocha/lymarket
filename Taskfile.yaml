@@ -6,16 +6,19 @@ tasks:
       - docker compose --env-file .env.dev build
   build_prod:
     cmds:
-      - docker compose --env-file .env.prod build
+      - docker compose -f docker-compose.prod.yml --env-file .env.prod build
   up_dev:
     cmds:
       - docker compose --env-file .env.dev up --build -d
+  down_dev:
+    cmds:
+      - docker compose --env-file .env.dev down
   up_prod:
     cmds:
-      - docker compose --env-file .env.prod up --build -d
+      - docker compose -f docker-compose.prod.yml --env-file .env.prod up --build -d
   down_prod:
     cmds:
-      - docker compose --env-file .env.prod down
+      - docker compose -f docker-compose.prod.yml --env-file .env.prod down
   restart_app:
     cmds:
       - docker compose restart app-1

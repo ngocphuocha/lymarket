@@ -52,7 +52,7 @@ public class AwsS3Service : IStorageService
         catch (Exception e)
         {
             _logger.LogError(e, "Error uploading file to S3: {FileName}", file.FileName);
-            Console.WriteLine(e);
+            Console.WriteLine(e.Message);
             throw;
         }
     }
