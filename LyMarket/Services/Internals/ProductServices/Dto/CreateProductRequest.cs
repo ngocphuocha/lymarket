@@ -14,5 +14,5 @@ public class CreateProductRequest
     public IFormFile? FileUpload { get; set; }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
-    public StogrageProvider? StorageProvider { get; set; }
+    public StorageProvider StorageProvider { get; set; }
 }

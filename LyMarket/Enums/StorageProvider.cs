@@ -1,6 +1,6 @@
 namespace LyMarket.Enums;
 
-public enum StogrageProvider
+public enum StorageProvider
 {
     AwsS3 = 0,
     AzureBlob = 1

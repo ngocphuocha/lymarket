@@ -35,8 +35,8 @@ public class ProductServices(
         {
             imageUrl = request.StorageProvider switch
             {
-                StogrageProvider.AwsS3 => await awsS3Service.UploadFileAsync(request.FileUpload),
-                StogrageProvider.AzureBlob => await azureBlobService.UploadFileAsync(request.FileUpload),
+                StorageProvider.AwsS3 => await awsS3Service.UploadFileAsync(request.FileUpload),
+                StorageProvider.AzureBlob => await azureBlobService.UploadFileAsync(request.FileUpload),
                 _ => imageUrl
             };
         }
