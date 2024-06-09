@@ -23,18 +23,7 @@ public class UnitOfWork : IUnitOfWork
 
     public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)
     {
-        await using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
-        try
-        {
-            var affectedRows = await _context.SaveChangesAsync(cancellationToken);
-            await transaction.CommitAsync(cancellationToken);
-            return affectedRows;
-        }
-        catch (Exception)
-        {
-            await transaction.RollbackAsync(cancellationToken);
-            throw; // Rethrow the exception to signal failure
-        }
+         return await _context.SaveChangesAsync(cancellationToken);
     }
 
     public void Dispose() => _context.Dispose();
