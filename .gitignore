@@ -1,4 +1,4 @@
-mkbin
+bin
 obj
 .env
 .env.dev
