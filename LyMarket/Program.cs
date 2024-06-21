@@ -22,7 +22,7 @@ builder.Services.AddCors(options =>
             {
                 var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',');
 
-                if (allowedOrigins is null  || allowedOrigins.Length is 0)
+                if (allowedOrigins is null || allowedOrigins.Length is 0)
                 {
 
                     throw new Exception("ALLOWED_ORIGINS environment variable is not set or empty.");
