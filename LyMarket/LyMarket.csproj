@@ -9,17 +9,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.300"/>
-        <PackageReference Include="AWSSDK.S3" Version="3.7.308.2"/>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5"/>
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.300" />
+        <PackageReference Include="AWSSDK.S3" Version="3.7.308.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2"/>
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4"/>
-        <PackageReference Include="Riok.Mapperly" Version="3.5.1"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.1"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+        <PackageReference Include="Riok.Mapperly" Version="3.5.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -29,7 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Services\Internals\"/>
+        <Folder Include="Services\Internals\" />
     </ItemGroup>
 
 </Project>
