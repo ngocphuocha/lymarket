@@ -10,8 +10,6 @@ public static class ExternalServiceExtension
 {
     public static void AddExternalService(this IServiceCollection services)
     {
-        services.AddDbContext<LyMarketDbContext>();
-
         services.Configure<AwsS3Options>(options =>
         {
             options.BucketName = Environment.GetEnvironmentVariable("AWS_S3_BUCKET_NAME")!;
