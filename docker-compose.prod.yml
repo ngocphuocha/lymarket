@@ -15,7 +15,9 @@ services:
 
   app:
     image: app
-    build: .
+    build:
+      context: .
+      dockerfile: LyMarket/Dockerfile
     networks:
       - internal_network
     environment:
