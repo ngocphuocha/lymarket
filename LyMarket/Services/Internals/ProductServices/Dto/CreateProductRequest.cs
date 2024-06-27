@@ -9,7 +9,7 @@ public class CreateProductRequest
     [Required]
     public string Name { get; set; }
 
-    [AllowedExtensions([".jpg", ".jpeg"])]
+    [AllowedExtensions([".jpg", ".jpeg", ".png"])]
     [MaxFileSizeKilobyte(2048)]
     public IFormFile? FileUpload { get; set; }
 
