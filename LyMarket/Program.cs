@@ -14,26 +14,16 @@ builder.Services.AddCors(options =>
     options.AddPolicy(myAllowSpecificOrigins,
         policy =>
         {
-            if (environment.IsDevelopment())
+            var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',');
+
+            if (allowedOrigins is null || allowedOrigins.Length is 0)
             {
-                policy.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
+                throw new Exception("ALLOWED_ORIGINS environment variable is not set or empty.");
             }
-            else
-            {
-                var allowedOrigins = Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(',');
 
-                if (allowedOrigins is null || allowedOrigins.Length is 0)
-                {
-
-                    throw new Exception("ALLOWED_ORIGINS environment variable is not set or empty.");
-                }
-
-                policy.WithOrigins(allowedOrigins)
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            }
+            policy.WithOrigins(allowedOrigins)
+                .AllowAnyHeader()
+                .AllowAnyMethod();
         });
 });
 
